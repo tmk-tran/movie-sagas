@@ -17,19 +17,21 @@ function MovieList() {
     dispatch({ type: "FETCH_MOVIES" });
   }, []);
 
+ 
+
   return (
     <main>
       <h1>MovieList</h1>
       <div className="movies">
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {movies.map((movie) => {
             return (
-              <Grid item key={movie.id} xs={4}>
+              <Grid item key={movie.id} xs={3}>
                 <Card style={{ width: "50%" }}>
                   <CardContent>
                     <h3>{movie.title}</h3>
                     <img
-                      onClick={() => history.push("/details")}
+                      onClick={() => history.push(`/details/${movie.id}`)}
                       src={movie.poster}
                       alt={movie.title}
                     />

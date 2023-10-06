@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
-import { takeEvery, put } from 'redux-saga/effects';
-import axios from 'axios';
+// import { takeEvery, put } from 'redux-saga/effects';
+// import axios from 'axios';
 import rootReducer from "./redux/reducer/_root.reducer"
 import rootSaga from "./redux/sagas/_root.saga";
 

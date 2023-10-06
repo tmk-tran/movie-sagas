@@ -5,9 +5,9 @@ function* detailsSaga() {
   try {
     const response = yield axios({
       method: "GET",
-      url: `"/api/movie/details/${action.payload}`,
+      url: `"/api/details/${action.payload}`,
     });
-    yield put({ type: "GET_DETAILS", payload: response.data[0] });
+    yield put({ type: "SET_DETAILS", payload: response.data });
   } catch (error) {
     console.log("Unable to get details from server");
   }

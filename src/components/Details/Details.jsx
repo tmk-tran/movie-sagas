@@ -38,14 +38,15 @@ export default function Details() {
 
   return (
     <>
-      <Button onClick={goBack}>Back</Button>
-      <h2>{title ? `Title: ${title}` : "No Movie Title Listed"}</h2>
       <Card style={{ width: "50%", margin: "0 auto" }}>
         <CardContent style={{ backgroundColor: "aliceblue" }}>
+          <Button onClick={goBack}>Back</Button>
+          <br />
+          <img src={poster} />
+          <br />
           <Typography variant="h4" style={{ fontFamily: "gotham" }}>
             {title}
           </Typography>
-          <img src={poster} />
           <br />
           <Typography variant="caption" style={{ fontFamily: "avenir" }}>
             {description}
@@ -54,11 +55,12 @@ export default function Details() {
           <Typography variant="h5" style={{ fontFamily: "gotham" }}>
             Genres:{" "}
             {genreList && genreList.length > 0 ? (
-              <span>{genreList.join(", ")}</span>
+              <span>{genreList.join(", ")}</span> /* joins the strings with a comma seprating them i.e. 'action, adeventure' */
             ) : (
               <span>No Genres Listed</span>
             )}
           </Typography>
+          <br />
         </CardContent>
       </Card>
     </>

@@ -5,15 +5,16 @@ import Details from "../Details/Details";
 import MovieList from "../MovieList/MovieList";
 import Movies from "../Movies/Movies";
 import "./App.css";
+// Bootstrap
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from "../Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
       <Router>
-        <Link to="/">Home</Link>
-        <Link to="/details">Details</Link>
-        <Link to="/movies">Movies</Link>
+        <Navbar />
         <Route path="/" exact>
           <MovieList />
         </Route>

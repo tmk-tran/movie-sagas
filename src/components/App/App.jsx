@@ -6,7 +6,7 @@ import MovieList from "../MovieList/MovieList";
 import Movies from "../Movies/Movies";
 import "./App.css";
 // Bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "../Navbar/Navbar";
 
 function App() {

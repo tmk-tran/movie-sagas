@@ -1,47 +1,84 @@
 import React from "react";
+import {
+  Card,
+  CardContent,
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Button,
+  Input,
+} from "@mui/material";
+import "./MoviesForm.css";
 
 export default function MovieForm() {
   return (
-    <form>
-      <div className="form-group">
-        <label htmlFor="exampleFormControlInput1"></label>
-        <input
-          type="email"
-          className="form-control"
-          id="exampleFormControlInput1"
-          placeholder="Movie Title"
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="exampleFormControlSelect1"></label>
-        <select className="form-control" id="exampleFormControlSelect1">
-          <option value="defaultOption" disabled>
-            Select an genre...
-          </option>
-          <option>Adventure</option>
-          <option>Animated</option>
-          <option>Biographical</option>
-          <option>Comedy</option>
-          <option>Disaster</option>
-          <option>Drama</option>
-          <option>Epic</option>
-          <option>Fantasy</option>
-          <option>Musical</option>
-          <option>Romantic</option>
-          <option>Science Fiction</option>
-          <option>Space-Opera</option>
-          <option>Superhero</option>
-        </select>
-      </div>
-      <div className="form-group">
-        <label htmlFor="exampleFormControlTextarea1"></label>
-        <textarea
-          className="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-          placeholder="Description"
-        ></textarea>
-      </div>
-    </form>
+    <Card className="movie-form-card">
+      <CardContent>
+        <form>
+          <FormControl fullWidth>
+            <TextField
+              className="form-control"
+              placeholder="Movie Title"
+              variant="outlined"
+              required
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <InputLabel id="dropdown-label">Select Genre</InputLabel>
+            <Select
+              className="form-control"
+              labelId="dropdown-label"
+              id="dropdown"
+              displayEmpty
+              variant="outlined"
+              required
+            >
+              <MenuItem value="" disabled>
+                Select Genre
+              </MenuItem>
+              <MenuItem value="Adventure">Adventure</MenuItem>
+              <MenuItem value="Animated">Animated</MenuItem>
+              <MenuItem value="Biographical">Biographical</MenuItem>
+              <MenuItem value="Comedy">Comedy</MenuItem>
+              <MenuItem value="Disaster">Disaster</MenuItem>
+              <MenuItem value="Drama">Drama</MenuItem>
+              <MenuItem value="Epic">Epic</MenuItem>
+              <MenuItem value="Fantasy">Fantasy</MenuItem>
+              <MenuItem value="Musical">Musical</MenuItem>
+              <MenuItem value="Romantic">Romantic</MenuItem>
+              <MenuItem value="Science Fiction">Science Fiction</MenuItem>
+              <MenuItem value="Space-Opera">Space-Opera</MenuItem>
+              <MenuItem value="Superhero">Superhero</MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl fullWidth>
+            <Input
+              className="form-control"
+              type="file"
+              id="image-upload"
+              accept="image/*"
+              required
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              className="form-control"
+              placeholder="Description"
+              multiline
+              rows={4}
+              variant="outlined"
+              required
+            />
+          </FormControl>
+
+          <Button variant="contained">click</Button>
+        </form>
+      </CardContent>
+    </Card>
   );
 }

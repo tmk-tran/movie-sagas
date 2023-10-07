@@ -1,15 +1,18 @@
 import { takeEvery, put } from "redux-saga/effects";
 import axios from "axios";
 
-function* detailsSaga() {
+function* detailsSaga(action) {
   try {
+    console.log('action payload', action.payload)
     const response = yield axios({
       method: "GET",
-      url: `"/api/details/${action.payload}`,
+      url: `/api/details/${action.payload}`,
     });
+    // console.log("Received payload from server:", action.payload);
+
     yield put({ type: "SET_DETAILS", payload: response.data });
   } catch (error) {
-    console.log("Unable to get details from server");
+    console.log("Unable to get details from server", error);
   }
 }
 

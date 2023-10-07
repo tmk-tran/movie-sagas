@@ -2,24 +2,25 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import Movies from "../Movies/Movies";
+// import Movies from "../Movies/Movies";
 
 export default function Details() {
   const dispatch = useDispatch();
   const history = useHistory();
   const paramsObject = useParams();
-  const movieDetails = useSelector((store) => store.movies);
-  console.log('DETAILS:', movieDetails);
+  const movieDetails = useSelector((store) => store.details);
+  console.log("MOVIES:", movieDetails);
 
   // movieDetails state object as variables
-  const movieTitle = movieDetails.title;
-  const moviePoster = movieDetails.poster;
+  const movieTitle = movieDetails.movie_title;
+  const moviePoster = movieDetails.movie_poster;
   const movieGenreList = movieDetails.genres;
-  const movieDescription = movieDetails.description;
+  const movieDescription = movieDetails.movie_description;
+  console.log("paramsObject: ", paramsObject.id);
 
   useEffect(() => {
     dispatch({
-      type: "FETCH_MOVIE_DETAILS",
+      type: "GET_DETAILS",
       payload: paramsObject.id,
     });
   }, []);

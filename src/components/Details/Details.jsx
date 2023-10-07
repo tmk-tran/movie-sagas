@@ -40,7 +40,7 @@ export default function Details() {
     <>
       <Card style={{ width: "50%", margin: "0 auto" }}>
         <CardContent style={{ backgroundColor: "aliceblue" }}>
-          <Button onClick={goBack}>Back</Button>
+          <Button onClick={goBack} variant="contained">Back</Button>
           <br />
           <img src={poster} />
           <br />

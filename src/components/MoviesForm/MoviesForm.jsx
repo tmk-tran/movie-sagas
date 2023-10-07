@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 import {
   Card,
   CardContent,
@@ -13,6 +14,15 @@ import {
 import "./MoviesForm.css";
 
 export default function MovieForm() {
+  const [imageUrl, setImageUrl] = useState("");
+  const [movieTitle, setMovieTitle] = useState("");
+  const [genre, setGenre] = useState("");
+  const [description, setDescription] = useState("");
+  console.log("Movie: ", movieTitle);
+  console.log("imageURL: ", imageUrl);
+  console.log("Genre: ", genre);
+  console.log("Description: ", description);
+
   return (
     <Card className="movie-form-card">
       <CardContent>
@@ -22,7 +32,9 @@ export default function MovieForm() {
               className="form-control"
               placeholder="Movie Title"
               variant="outlined"
+              value={movieTitle}
               required
+              onChange={(e) => setMovieTitle(e.target.value)}
             />
           </FormControl>
 
@@ -35,9 +47,10 @@ export default function MovieForm() {
               displayEmpty
               variant="outlined"
               required
+              value={genre} // Bind the value to the genre state
+              onChange={(e) => setGenre(e.target.value)}
             >
               <MenuItem value="" disabled>
-                Select Genre
               </MenuItem>
               <MenuItem value="Adventure">Adventure</MenuItem>
               <MenuItem value="Animated">Animated</MenuItem>
@@ -53,6 +66,16 @@ export default function MovieForm() {
               <MenuItem value="Space-Opera">Space-Opera</MenuItem>
               <MenuItem value="Superhero">Superhero</MenuItem>
             </Select>
+          </FormControl>
+          <FormControl fullWidth>
+            <TextField
+              className="form-control"
+              placeholder="Image URL"
+              variant="outlined"
+              required
+              value={imageUrl} // Assuming you have an 'imageUrl' state variable
+              onChange={(e) => setImageUrl(e.target.value)} // Update 'imageUrl' state when input changes
+            />
           </FormControl>
 
           <FormControl fullWidth>
@@ -73,6 +96,7 @@ export default function MovieForm() {
               rows={4}
               variant="outlined"
               required
+              onChange={(e) => setDescription(e.target.value)}
             />
           </FormControl>
 

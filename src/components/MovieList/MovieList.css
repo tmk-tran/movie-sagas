@@ -1,6 +1,41 @@
-/* 
-.movies {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; 
-  } */
+/* Container for the entire movie carousel */
+.movie-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide overflow to create the wheel effect */
+  width: 100%; /* Set a fixed width for the container */
+  position: relative; /* Add relative positioning to handle z-index */
+}
+
+/* Container for the movies */
+.movie-container {
+  display: flex;
+  flex-wrap: nowrap; /* Display movies in a single row */
+  transition: transform 0.3s ease; /* Smooth transition when scrolling */
+  overflow: hidden;
+  width: 660px; /* Adjust to match card width * numVisibleCards */
+}
+
+/* Individual movie card */
+.movie-card {
+  width: 250px; /* Set a fixed width for the cards including margin */
+  height: 500px; /* Set a fixed height for the cards */
+  margin-right: 10px; /* Add some margin between cards */
+}
+
+/* Container for the entire movie row */
+.movie-row {
+  overflow-x: hidden;
+  position: relative; /* Add relative positioning */
+  width: 780px; /* Adjust to match card width * numVisibleCards */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    color:ghostwhite;
+}

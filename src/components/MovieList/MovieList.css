@@ -20,7 +20,7 @@
 /* Individual movie card */
 .movie-card {
   width: 250px; /* Set a fixed width for the cards including margin */
-  height: 500px; /* Set a fixed height for the cards */
+  height: 480px; /* Set a fixed height for the cards */
   margin-right: 10px; /* Add some margin between cards */
 }
 
@@ -32,6 +32,6 @@
   margin: 0 auto; /* Center the container horizontally */
 }
 
-h1 {
+/* h1 {
     color:ghostwhite;
-}
+} */

@@ -10,9 +10,11 @@ import { Grid, Button, Typography } from "@mui/material";
 function MovieList() {
   const dispatch = useDispatch();
   const history = useHistory();
+  // bring in the reducer holding the movies
   const movies = useSelector((store) => store.details.movies);
   console.log(movies);
 
+  // grab movies on page load
   useEffect(() => {
     dispatch({ type: "FETCH_MOVIES" });
   }, []);
@@ -21,6 +23,7 @@ function MovieList() {
   const cardWidth = 220; // Adjust to match card width including margin
   const numVisibleCards = 3; // Number of cards to display at a time
   const totalWidth = cardWidth * movies.length;
+  console.log("what are you", scrollContainerRef);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -87,7 +90,9 @@ function MovieList() {
                 />
                 <br />
                 <br />
-                <Typography variant="h5" style={{fontFamily: "Trajan Pro"}}>{movie.title}</Typography>
+                <Typography variant="h5" style={{ fontFamily: "Trajan Pro" }}>
+                  {movie.title}
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -95,8 +100,16 @@ function MovieList() {
       </div>
       <br />
       <div>
-        <Button onClick={scrollLeft} variant="contained" style={{marginRight: "5px"}}>Left</Button>
-        <Button onClick={scrollRight} variant="contained">Right</Button>
+        <Button
+          onClick={scrollLeft}
+          variant="contained"
+          style={{ marginRight: "5px" }}
+        >
+          Left
+        </Button>
+        <Button onClick={scrollRight} variant="contained">
+          Right
+        </Button>
       </div>
     </div>
   );

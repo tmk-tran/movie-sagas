@@ -40,7 +40,12 @@ export default function Details() {
   return (
     <>
       <div className="details-box">
-        <Card className="details-card">
+        <Card
+          className="details-card"
+          style={{
+            borderRadius: "15px",
+          }}
+        >
           <CardContent style={{ backgroundColor: "aliceblue" }}>
             <Button
               onClick={goBack}

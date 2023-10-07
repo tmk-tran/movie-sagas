@@ -1,8 +1,3 @@
-.form-group {
-  display: flex;
-  justify-content: center;
-}
-
 .movie-form-card {
   max-width: 400px;
   margin: 0 auto;

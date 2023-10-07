@@ -1,64 +1,62 @@
 # PROJECT NAME
-Movie-Sagas
+'Movie-Sagas'
+
+A practice project with focus on:
+## React-Redux with Redux-Sagas ##
+
+This project had two separate parts to work on:
+
+1. Adding features to an existing Movie App with React-Redux and Redux-Sagas
+2. Practicing SQL
 
 ## Description
 
-_Duration: 2 Week Sprint_
+Add the Detail View to a Movie App
 
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
+For this weekend challenge I expanded on a movie management application, with the following description:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam at massa in faucibus. Etiam volutpat, risus non mollis convallis, velit nisi pulvinar mi, eu faucibus orci nisi eget nibh. Integer a velit pretium, volutpat arcu eleifend, fringilla elit. Cras erat sapien, convallis venenatis tellus vitae, feugiat dictum felis.
+ "We're already able to see movies that exist in our DB. We'll need to be able to see detailed view for each individual movie, including all genres associated with that movie. This is a very common pattern, to go from a list to showing more information about a single item."
 
-Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque facilisis. Phasellus varius malesuada semper. Cras sollicitudin diam mollis maximus aliquam.
-
-To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
+I added the ability to view movie details when the image of the movie is clicked, used conditional rendering to display data, and a variety of other methods to practice the techniques I have learned through Emerging Digital Academy's Koss Cohort Tier 2 curriculum.
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
-
-### Prerequisites
-
-Link to software that is required to install the app (e.g. node).
-
-- [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
 
 ## Installation
 
-How do you get your application up and running? This is a step by step list for how another developer could get this project up and running. The good target audience in terms of knowledge, would be a fellow Primer from another cohort being able to spin up this project. Note that you do not need a paragraph here to intro Installation. It should be step-by-step.
-
-If your application has secret keys (for example --  Twilio), make sure you tell them how to set that up, both in getting the key and then what to call it in the `.env` file.
-
-1. Create a database named `your database name`,
-2. The queries in the `tables.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
+1. Create a database named `saga_movies_weekend`,
+2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
 3. Open up your editor of choice and run an `npm install`
 4. Run `npm run server` in your terminal
 5. Run `npm run client` in your terminal
 6. The `npm run client` command will open up a new browser tab for you!
 
 ## Usage
-How does someone use this application? Tell a user story here.
+The App is designed to scroll through a list of movies, and display movie details upon click of the movie image.
 
-1. xxx
-2. xxx
-3. xxx
-4. xxx
-5. xxx
-6. xxx
-
+1. Use the buttons on the home screen to scroll through the list of movies
+2. See a movie you like? Click it to see details about the movie!
+3. 
 
 ## Built With
 
-List technologies and frameworks here
+### Technology Utilized
+ - React
+ - Redux
+ - Sagas 
+ - SQL
+ - Postman
+ - Postico
+ - CSS
+ - JavaScript
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
-
-_Note, include this only if you have a license file. GitHub will generate one for you if you want!_
+ ### Styling Frameworks
+ - Material UI
+ - Bootstrap
+ - Font Awesome
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. (Thank your people)
+Thanks to [Emerging Digital Academy](https://emergingacademy.org) who equipped and helped me to make this application a reality. 
 
 ## Support
-If you have suggestions or issues, please email me at [youremail@whatever.com](www.google.com)
+If you have suggestions or issues, please email me at [tmk1.tran](www.google.com)

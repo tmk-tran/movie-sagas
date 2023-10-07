@@ -23,7 +23,7 @@ function Navbar() {
         {isNavOpen && (
           <ul className="navbar-nav ml-auto">
             <Link to="/" style={{color: "ghostwhite"}}>Home</Link>
-            <Link to="/movies" style={{color: "ghostwhite"}}>OtherPage</Link>
+            <Link to="/movies" style={{color: "ghostwhite" }}>Add a movie</Link>
           </ul>
         )}
         <button

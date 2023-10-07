@@ -8,6 +8,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
+import "./Details.css";
 
 export default function Details() {
   const dispatch = useDispatch();
@@ -38,31 +39,41 @@ export default function Details() {
 
   return (
     <>
-      <Card style={{ width: "50%", margin: "0 auto" }}>
-        <CardContent style={{ backgroundColor: "aliceblue" }}>
-          <Button onClick={goBack} variant="contained">Back</Button>
-          <br />
-          <img src={poster} />
-          <br />
-          <Typography variant="h4" style={{ fontFamily: "gotham" }}>
-            {title}
-          </Typography>
-          <br />
-          <Typography variant="caption" style={{ fontFamily: "avenir" }}>
-            {description}
-          </Typography>
-          <br />
-          <Typography variant="h5" style={{ fontFamily: "gotham" }}>
-            Genres:{" "}
-            {genreList && genreList.length > 0 ? (
-              <span>{genreList.join(", ")}</span> /* joins the strings with a comma seprating them i.e. 'action, adeventure' */
-            ) : (
-              <span>No Genres Listed</span>
-            )}
-          </Typography>
-          <br />
-        </CardContent>
-      </Card>
+      <div className="details-box">
+        <Card className="details-card">
+          <CardContent style={{ backgroundColor: "aliceblue" }}>
+            <Button
+              onClick={goBack}
+              variant="contained"
+              style={{ marginBottom: "10px" }}
+            >
+              Back
+            </Button>
+            <br />
+            <img src={poster} />
+            <br />
+            <Typography variant="h4" style={{ fontFamily: "gotham" }}>
+              {title}
+            </Typography>
+            <br />
+            <Typography variant="caption" style={{ fontFamily: "avenir" }}>
+              {description}
+            </Typography>
+            <br />
+            <Typography variant="h5" style={{ fontFamily: "gotham" }}>
+              Genres:{" "}
+              {genreList && genreList.length > 0 ? (
+                <span>
+                  {genreList.join(", ")}
+                </span> /* joins the strings with a comma seprating them i.e. 'action, adeventure' */
+              ) : (
+                <span>No Genres Listed</span>
+              )}
+            </Typography>
+            <br />
+          </CardContent>
+        </Card>
+      </div>
     </>
   );
 }

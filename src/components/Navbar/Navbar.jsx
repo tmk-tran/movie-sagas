@@ -9,7 +9,7 @@ function Navbar() {
     <AppBar position="static">
       <Tabs value={false}>
         <Tab label="Home" component={Link} to="/" />
-        <Tab label="Movies" component={Link} to="/movies" />
+        <Tab label="Add Movie" component={Link} to="/movies" />
         {/* Add more Tab components for additional links */}
       </Tabs>
     </AppBar>

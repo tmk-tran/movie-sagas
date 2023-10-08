@@ -83,6 +83,7 @@ function MovieList() {
             <Card className="movie-card">
               <CardContent>
                 <img
+                  className="movie-image"
                   style={{ width: "100%", height: "auto", cursor: "pointer" }}
                   onClick={() => history.push(`/details/${movie.id}`)}
                   src={movie.poster}

@@ -142,7 +142,7 @@ export default function MovieForm() {
             />
           </FormControl>
 
-          <Button>Cancel</Button>
+          <Button onClick={()=> history.push('/')}>Cancel</Button>
           <Button onClick={handleClick} variant="contained">
             Add Movie
           </Button>

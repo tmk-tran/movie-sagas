@@ -31,8 +31,7 @@ function MovieList() {
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.style.transition =
-        "transform 0.5s ease-in-out";
+      scrollContainerRef.current.style.transition = "transform 1s ease-in-out";
       scrollContainerRef.current.style.transform = `translateX(${
         cardWidth * numVisibleCards
       }px)`; // Scroll 'numVisibleCards' at a time
@@ -47,14 +46,13 @@ function MovieList() {
             );
           }
         }
-      }, 300);
+      }, 400);
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.style.transition =
-        "transform 0.5s ease-in-out";
+      scrollContainerRef.current.style.transition = "transform 1s ease-in-out";
       scrollContainerRef.current.style.transform = `translateX(-${
         cardWidth * numVisibleCards
       }px)`; // Scroll 'numVisibleCards' at a time
@@ -76,7 +74,6 @@ function MovieList() {
 
   return (
     <div className="movie-row">
-      <h1>Movies</h1>
       <div
         className="movie-container"
         ref={scrollContainerRef}
@@ -100,7 +97,7 @@ function MovieList() {
                 <br />
                 <Typography
                   variant="h5"
-                  style={{ fontFamily: "Trajan Pro", color: "ghostwhite" }}
+                  style={{ fontFamily: "Proxima Nova", color: "ghostwhite" }}
                 >
                   {movie.title}
                 </Typography>
@@ -114,11 +111,16 @@ function MovieList() {
       </div>
       <br />
       <div className="arrow-buttons">
-        <IconButton id="arrows" onClick={scrollLeft} variant="contained" style={{ marginRight: "5px"}}>
-          <ArrowBackIcon />
+        <IconButton
+          id="arrows"
+          onClick={scrollLeft}
+          variant="contained"
+          style={{ marginRight: "5px" }}
+        >
+          <ArrowBackIcon id="icon-arrow" />
         </IconButton>
         <IconButton id="arrows" onClick={scrollRight} variant="contained">
-          <ArrowForwardIcon />
+          <ArrowForwardIcon id="icon-arrow" />
         </IconButton>
       </div>
     </div>

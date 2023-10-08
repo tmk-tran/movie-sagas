@@ -11,9 +11,8 @@ import Navbar from "../Navbar/Navbar";
 function App() {
   return (
     <div className="App">
-      <h1>The Movies Saga!</h1>
+      <h1 className="text-with-shadow">SagaFlix</h1>
       <Router>
-        <Navbar />
         <Route path="/" exact>
           <MovieList />
         </Route>
@@ -26,6 +25,9 @@ function App() {
         <Route path="/edit/:id">
           <Edit />
         </Route>
+        <div className="navbar">
+          <Navbar />
+        </div>
       </Router>
     </div>
   );

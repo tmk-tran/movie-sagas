@@ -4,3 +4,8 @@
     /* border-radius: 15px; */
 }
 
+.buttons-details {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}

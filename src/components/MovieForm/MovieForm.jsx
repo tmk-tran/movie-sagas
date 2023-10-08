@@ -147,7 +147,6 @@ export default function MovieForm() {
           <Button onClick={handleClick} variant="contained">
             Add Movie
           </Button>
-          <button>Edit</button>
         </form>
       </CardContent>
     </Card>

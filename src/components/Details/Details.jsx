@@ -47,14 +47,17 @@ export default function Details() {
           }}
         >
           <CardContent style={{ backgroundColor: "aliceblue" }}>
-            <Button
-              onClick={goBack}
-              variant="contained"
-              style={{ marginBottom: "10px" }}
-            >
-              Back
-            </Button>
-            <br />
+            <div className="buttons-details">
+              <Button
+                onClick={goBack}
+                variant="contained"
+              >
+                Back
+              </Button>
+              <Button variant="outlined">
+                Edit
+              </Button>
+            </div>
             <img src={poster} />
             <br />
             <Typography variant="h4" style={{ fontFamily: "gotham" }}>

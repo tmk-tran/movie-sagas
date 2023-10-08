@@ -4,9 +4,8 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import Details from "../Details/Details";
 import MovieList from "../MovieList/MovieList";
 import Movies from "../Movies/Movies";
+import Edit from "../Edit/Edit";
 import "./App.css";
-// Bootstrap
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "../Navbar/Navbar";
 
 function App() {
@@ -23,6 +22,9 @@ function App() {
         </Route>
         <Route path="/movies">
           <Movies />
+        </Route>
+        <Route path="/edit/:id">
+          <Edit />
         </Route>
       </Router>
     </div>

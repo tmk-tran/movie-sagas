@@ -41,10 +41,27 @@ function* addMovieSaga(action) {
   }
 }
 
+function* editMovieSaga(action) {
+  console.log("INCOMING: ", action.payload);
+  try {
+    yield axios({
+      method: "PUT",
+      url: `/api/movie/${action.payload.id}`,
+      data: action.payload,
+    });
+    console.log("ADDING: payload is: ", action.payload)
+    yield put({ type: "FETCH_MOVIES" });
+  } catch (error) {
+    console.log(error);
+    alert("Unable to save movie");
+  }
+}
+
 function* rootSaga() {
   yield takeEvery("GET_DETAILS", detailsSaga);
   yield takeEvery("FETCH_MOVIES", fetchAllMovies);
   yield takeEvery("ADD_MOVIE", addMovieSaga);
+  yield takeEvery("EDIT_MOVIE", editMovieSaga);
 }
 
 export default rootSaga;

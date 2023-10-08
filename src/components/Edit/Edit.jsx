@@ -14,15 +14,15 @@ import "./Edit.css";
 export default function Edit() {
   const dispatch = useDispatch();
   const history = useHistory();
-  //   const paramsObject = useParams();
+
   const [showInput, setShowInput] = useState(false);
+  //   const [editId, setEditId] = useState(details.editReducer.id);
   const [editedTitle, setEditedTitle] = useState(""); // State for edited title
   const [editedDescription, setEditedDescription] = useState(""); // State for edited description
 
   // bring in details from the _rootReducer
   const editDetails = useSelector((store) => store.details.editReducer);
-  console.log("EDIT DETAILS: ", editDetails);
-
+//   console.log("IN EDIT DETAILS, DETAILS ARE: ", editDetails, "ID: ", editDetails.id);
   // Function to toggle edit mode
   const toggleEditMode = () => {
     setShowInput(!showInput);
@@ -39,16 +39,15 @@ export default function Edit() {
 
     // Define the action creator for dispatch
     const editMovie = (newInfo) => ({
-      type: "EDIT_MOVIE", // --> ADD_MOVIE communicates with the addReducer
+      type: "EDIT_MOVIE", // --> EDIT_MOVIE communicates with the editReducer
       payload: newInfo,
     });
-
     // Create a movie object with the form data
     const newInfo = {
+      id: editDetails.id,
       title: editedTitle,
       description: editedDescription,
     };
-
     // Dispatch the action
     dispatch(editMovie(newInfo));
 
@@ -85,7 +84,7 @@ export default function Edit() {
                 value={editedTitle}
                 placeholder="Enter New Title"
                 onChange={(e) => setEditedTitle(e.target.value)}
-                style={{backgroundColor: "aliceblue"}}
+                style={{ backgroundColor: "aliceblue" }}
               />
             ) : (
               <Typography variant="h4">{editDetails.title}</Typography>
@@ -104,7 +103,7 @@ export default function Edit() {
                 value={editedDescription}
                 placeholder="Enter New Description..."
                 onChange={(e) => setEditedDescription(e.target.value)}
-                style={{backgroundColor: "aliceblue"}}
+                style={{ backgroundColor: "aliceblue" }}
               />
             ) : (
               <Typography variant="h6">{editDetails.description}</Typography>

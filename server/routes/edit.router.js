@@ -6,6 +6,7 @@ router.put("/:id", (req, res) => {
   let movieId = req.params.id; // Get the movie ID from the URL parameter
   let newTitle = req.body.title; // Get the new title from the request body
   let newDescription = req.body.description; // Get the new description from the request body
+  console.log("title:", newTitle, "description:", newDescription, "ID: ",movieId);
 
   let queryText = `
     UPDATE "movies"

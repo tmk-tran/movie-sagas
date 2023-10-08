@@ -9,6 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import "./Details.css";
+import detailsReducer from "../../redux/reducer/details.reducer";
 
 export default function Details() {
   const dispatch = useDispatch();
@@ -20,15 +21,12 @@ export default function Details() {
   console.log("DETAILS:", movieDetails);
 
   // Variables defining the categories in the object from the _rootReducer, details.detailsReducer
+  const id = movieDetails.movie_id;
   const title = movieDetails.movie_title;
   const poster = movieDetails.movie_poster;
   const genreList = movieDetails.genres;
   const description = movieDetails.movie_description;
   console.log("Movie Title:", title);
-
-//   const [selectedMovie, setSelectedMovie] = useState(
-//     favorite.movie_id
-//   );
 
   useEffect(() => {
     dispatch({
@@ -58,8 +56,8 @@ export default function Details() {
               <Button
                 onClick={() =>
                   dispatch({
-                    type: "UPDATE_MOVIE",
-                    payload: { },
+                    type: "EDIT_MOVIE",
+                    payload: { id, title, description },
                   })
                 }
                 variant="outlined"

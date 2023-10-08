@@ -17,13 +17,13 @@ function MovieList() {
   // grab movies on page load
   useEffect(() => {
     dispatch({ type: "FETCH_MOVIES" });
+    dispatch({ type: "FETCH_GENRES"}); // --> action creator for saga
   }, []);
 
   const scrollContainerRef = React.useRef(null);
   const cardWidth = 220; // Adjust to match card width including margin
   const numVisibleCards = 3; // Number of cards to display at a time
   const totalWidth = cardWidth * movies.length;
-  console.log("what are you", scrollContainerRef);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {

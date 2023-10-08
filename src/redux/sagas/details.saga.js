@@ -26,36 +26,36 @@ function* fetchAllMovies() {
   }
 }
 
-// function* addMovieSaga(action) {
-//   try {
-//     yield axios({
-//       method: "POST",
-//       url: "/api/movie",
-//       data: action.payload,
-//     });
-//     console.log("ADDING: payload is: ", action.payload)
-//     yield put({ type: "SET_MOVIES" });
-//   } catch (error) {
-//     console.log(error);
-//     alert("Unable to save fruit");
-//   }
-// }
-
 function* addMovieSaga(action) {
   try {
-    // Extract the payload directly from the action
-    const { movieData } = action;
-
-    // Make a POST request to add the movie
-    yield axios.post("/api/movie", movieData);
-
-    // After adding the movie, fetch the updated list of movies
-    yield put({ type: "FETCH_MOVIES" }); // Dispatch an action to fetch movies
+    yield axios({
+      method: "POST",
+      url: "/api/movie",
+      data: action.payload,
+    });
+    console.log("ADDING: payload is: ", action.payload)
+    yield put({ type: "ADD_MOVIES" });
   } catch (error) {
-    console.error("Error adding movie:", error);
-    alert("Unable to add movie.");
+    console.log(error);
+    alert("Unable to save movie");
   }
 }
+
+// function* addMovieSaga(action) {
+//   try {
+//     // Extract the payload directly from the action
+//     const { movieData } = action;
+
+//     // Make a POST request to add the movie
+//     yield axios.post("/api/movie", movieData);
+
+//     // After adding the movie, fetch the updated list of movies
+//     yield put({ type: "FETCH_MOVIES" }); // Dispatch an action to fetch movies
+//   } catch (error) {
+//     console.error("Error adding movie:", error);
+//     alert("Unable to add movie.");
+//   }
+// }
 
 function* rootSaga() {
   yield takeEvery("GET_DETAILS", detailsSaga);

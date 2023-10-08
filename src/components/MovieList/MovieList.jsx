@@ -5,19 +5,23 @@ import { useHistory } from "react-router-dom";
 import "./MovieList.css";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { Grid, Button, Typography } from "@mui/material";
+import { Grid, Button, Typography, IconButton } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function MovieList() {
   const dispatch = useDispatch();
   const history = useHistory();
   // bring in the reducer holding the movies
   const movies = useSelector((store) => store.details.movies);
-  console.log(movies);
+  const genres = useSelector((store) => store.genres.genres);
+  console.log("MOVIES: ", movies);
+  console.log("GENRES: ", genres);
 
   // grab movies on page load
   useEffect(() => {
     dispatch({ type: "FETCH_MOVIES" });
-    dispatch({ type: "FETCH_GENRES"}); // --> action creator for saga
+    dispatch({ type: "FETCH_GENRES" }); // --> action creator for saga
   }, []);
 
   const scrollContainerRef = React.useRef(null);
@@ -78,7 +82,7 @@ function MovieList() {
         ref={scrollContainerRef}
         style={{ width: `${totalWidth}px` }}
       >
-        {movies.map((movie) => (
+        {genres.map((movie) => (
           <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>
             <Card
               className="movie-card"
@@ -100,23 +104,22 @@ function MovieList() {
                 >
                   {movie.title}
                 </Typography>
+                <Typography variant="caption" style={{ color: "ghostwhite" }}>
+                  {movie.genres}
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
         ))}
       </div>
       <br />
-      <div>
-        <Button
-          onClick={scrollLeft}
-          variant="contained"
-          style={{ marginRight: "5px" }}
-        >
-          Left
-        </Button>
-        <Button onClick={scrollRight} variant="contained">
-          Right
-        </Button>
+      <div className="arrow-buttons">
+        <IconButton id="arrows" onClick={scrollLeft} variant="contained" style={{ marginRight: "5px"}}>
+          <ArrowBackIcon />
+        </IconButton>
+        <IconButton id="arrows" onClick={scrollRight} variant="contained">
+          <ArrowForwardIcon />
+        </IconButton>
       </div>
     </div>
   );

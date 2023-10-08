@@ -6,10 +6,10 @@ import "./Navbar.css";
 function Navbar() {
 
   return (
-    <AppBar position="static">
+    <AppBar id="navbar" position="static">
       <Tabs value={false}>
-        <Tab label="Home" component={Link} to="/" />
-        <Tab label="Add Movie" component={Link} to="/movies" />
+        <Tab id="link" label="Home" component={Link} to="/" />
+        <Tab id="link" label="Add Movie" component={Link} to="/movies" />
         {/* Add more Tab components for additional links */}
       </Tabs>
     </AppBar>

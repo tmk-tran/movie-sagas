@@ -39,3 +39,12 @@
   width: 1400px; /* Adjust to match card width * numVisibleCards */
   margin: 0 auto; /* Center the container horizontally */
 }
+
+#arrows {
+  color: ghostwhite;
+}
+
+.arrow-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -1,7 +1,7 @@
-.navbar-toggler-icon {
-    color: ghostwhite;
+#navbar {
+    background-color: rgb(53, 109, 178);
 }
 
-.navbar-toggler {
-    background-color: rgb(22, 28, 105);
+#link:hover {
+    color: whitesmoke;
 }

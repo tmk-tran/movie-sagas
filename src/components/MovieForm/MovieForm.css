@@ -1,12 +1,12 @@
 .movie-form-card {
   max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  padding: 10px;
 }
 
 .form-control {
   width: 100%;
   margin-bottom: 20px;
+  background-color: rgb(177, 177, 229);
+  border-radius: 15px;
 }

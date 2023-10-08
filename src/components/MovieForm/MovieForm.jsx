@@ -42,8 +42,8 @@ export default function MovieForm() {
     const newMovie = {
       title: movieTitle,
       poster: imageUrl,
-      description,
-      genre_id: genreId, // Use genreId instead of genre
+      description: description,
+      genre_id: genreId, 
     };
 
     // Dispatch the action
@@ -61,7 +61,7 @@ export default function MovieForm() {
   };
 
   return (
-    <Card className="movie-form-card" style={{ borderRadius: "15px" }}>
+    <Card className="movie-form-card" style={{ borderRadius: "25px", backgroundColor: "rgba(0, 0, 0, 0.76)"}}>
       <CardContent>
         <form>
           <FormControl fullWidth>
@@ -71,7 +71,8 @@ export default function MovieForm() {
               variant="outlined"
               value={movieTitle}
               required
-              onChange={(e) => setMovieTitle(e.target.value)}
+              onChange={(e) => setMovieTitle(e.target.value)
+              }
             />
           </FormControl>
           <br />

@@ -4,20 +4,27 @@
   flex-wrap: nowrap; /* Display movies in a single row */
   transition: transform 0.3s ease; /* Smooth transition when scrolling */
   overflow: hidden;
-  width: 710px; /* Adjust to match card width * numVisibleCards */
+  width: 1000px; /* Adjust to match card width * numVisibleCards */
+  height: 600px;
 }
 
 /* Individual movie card */
 .movie-card {
   width: 300px; /* Set a fixed width for the cards including margin */
-  height: 480px; /* Set a fixed height for the cards */
-  margin-right: 10px; /* Add some margin between cards */
+  height: 500px; /* Set a fixed height for the cards */
+  margin: 50px 25px;
 }
 
-.MuiCard-root:hover {
+.movie-card:hover {
   /* Apply a scale transform on hover */
-  transform: scale(1.2); /* Adjust the scale factor as needed */
-  transition: transform 0.3s ease; /* Add a smooth transition */
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+  transition: box-shadow 0.3s ease; /* Add a smooth transition */
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+}
+
+.MuiCard-root {
+  background-color: black;
+  color: ghostwhite;
 }
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.movie-card.css-bhp9pd-MuiPaper-root-MuiCard-root {
@@ -28,6 +35,7 @@
 /* Container for the entire movie row */
 .movie-row {
   overflow-x: hidden;
-  width: 925px; /* Adjust to match card width * numVisibleCards */
+  overflow-y: visible;
+  width: 1050px; /* Adjust to match card width * numVisibleCards */
   margin: 0 auto; /* Center the container horizontally */
 }

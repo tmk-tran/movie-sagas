@@ -91,7 +91,7 @@ function MovieList() {
                 />
                 <br />
                 <br />
-                <Typography variant="h5" style={{ fontFamily: "Trajan Pro" }}>
+                <Typography variant="h5" style={{ fontFamily: "Trajan Pro", color: "ghostwhite" }}>
                   {movie.title}
                 </Typography>
               </CardContent>

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -9,6 +10,7 @@ import { Button } from "@mui/material";
 import "./Details.css";
 
 export default function Details() {
+  const [showDescription, setShowDescription] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const paramsObject = useParams();
@@ -53,7 +55,7 @@ export default function Details() {
             borderRadius: "15px",
           }}
         >
-          <CardContent style={{ backgroundColor: "aliceblue" }}>
+          <CardContent style={{ backgroundColor: "rgba(3, 0, 0, 0.94)"}}>
             <div className="buttons-details">
               <Button onClick={goBack} variant="contained">
                 Back
@@ -64,15 +66,30 @@ export default function Details() {
             </div>
             <img src={poster} />
             <br />
-            <Typography variant="h4" style={{ fontFamily: "gotham" }}>
+            <Typography variant="h4" style={{ fontFamily: "gotham", color: "ghostwhite" }}>
               {title}
             </Typography>
             <br />
-            <Typography variant="caption" style={{ fontFamily: "avenir" }}>
-              {description}
-            </Typography>
-            <br />
-            <Typography variant="h5" style={{ fontFamily: "gotham" }}>
+
+            <Button
+              onClick={() => setShowDescription(!showDescription)} // Toggle the state on button click
+              variant="outlined"
+              style={{ borderRadius: "20px" }}
+            >
+              {showDescription ? "Hide Description" : "Show Description"}
+            </Button>
+            {/* Conditionally render the description based on the state */}
+            {showDescription && (
+              <div>
+                <hr />
+                <Typography variant="caption" style={{ fontFamily: "avenir", color: "ghostwhite" }}>
+                  {description}
+                </Typography>
+              </div>
+            )}
+            <hr />
+
+            <Typography variant="h5" style={{ fontFamily: "gotham", color: "ghostwhite" }}>
               Genres:{" "}
               {genreList && genreList.length > 0 ? (
                 <span>

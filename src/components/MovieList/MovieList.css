@@ -2,7 +2,7 @@
 .movie-container {
   display: flex;
   flex-wrap: nowrap; /* Display movies in a single row */
-  transition: transform 0.3s ease; /* Smooth transition when scrolling */
+  transition: transform .5s ease; /* Smooth transition when scrolling */
   overflow: hidden;
   width: 1000px; /* Adjust to match card width * numVisibleCards */
   height: 600px;
@@ -18,7 +18,7 @@
 .movie-card:hover {
   /* Apply a scale transform on hover */
   transform: scale(1.1); /* Adjust the scale factor as needed */
-  transition: box-shadow 0.3s ease; /* Add a smooth transition */
+  transition: box-shadow 0.5s ease; /* Add a smooth transition */
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 
@@ -28,7 +28,7 @@
 }
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.movie-card.css-bhp9pd-MuiPaper-root-MuiCard-root {
-  background-color: rgba(141, 146, 154, 0.911);
+  background-color: rgba(115, 8, 8, 0.729);
   border-radius: 10px;
 }
 
@@ -36,6 +36,6 @@
 .movie-row {
   overflow-x: hidden;
   overflow-y: visible;
-  width: 1050px; /* Adjust to match card width * numVisibleCards */
+  width: 1400px; /* Adjust to match card width * numVisibleCards */
   margin: 0 auto; /* Center the container horizontally */
 }

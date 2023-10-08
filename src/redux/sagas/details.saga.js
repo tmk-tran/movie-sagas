@@ -41,22 +41,6 @@ function* addMovieSaga(action) {
   }
 }
 
-// function* addMovieSaga(action) {
-//   try {
-//     // Extract the payload directly from the action
-//     const { movieData } = action;
-
-//     // Make a POST request to add the movie
-//     yield axios.post("/api/movie", movieData);
-
-//     // After adding the movie, fetch the updated list of movies
-//     yield put({ type: "FETCH_MOVIES" }); // Dispatch an action to fetch movies
-//   } catch (error) {
-//     console.error("Error adding movie:", error);
-//     alert("Unable to add movie.");
-//   }
-// }
-
 function* rootSaga() {
   yield takeEvery("GET_DETAILS", detailsSaga);
   yield takeEvery("FETCH_MOVIES", fetchAllMovies);

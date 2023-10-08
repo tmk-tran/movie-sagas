@@ -34,7 +34,7 @@ function* addMovieSaga(action) {
       data: action.payload,
     });
     console.log("ADDING: payload is: ", action.payload)
-    yield put({ type: "ADD_MOVIES" });
+    yield put({ type: "FETCH_MOVIES" });
   } catch (error) {
     console.log(error);
     alert("Unable to save movie");
@@ -60,7 +60,7 @@ function* addMovieSaga(action) {
 function* rootSaga() {
   yield takeEvery("GET_DETAILS", detailsSaga);
   yield takeEvery("FETCH_MOVIES", fetchAllMovies);
-  yield takeEvery("ADD_MOVIES", addMovieSaga);
+  yield takeEvery("ADD_MOVIE", addMovieSaga);
 }
 
 export default rootSaga;

@@ -10,7 +10,7 @@ import {
   FormControl,
   InputLabel,
   Button,
-  Input
+  Input,
 } from "@mui/material";
 import "./MoviesForm.css";
 
@@ -28,10 +28,16 @@ export default function MovieForm() {
   console.log("imageURL: ", imageUrl);
   console.log("Genre: ", genre);
   console.log("Description: ", description);
-  console.log("GenreId: ", genreId);
+  console.log("Genre_Id: ", genreId);
 
   const handleClick = (e) => {
     e.preventDefault();
+
+    // Define the action creator within the component
+  const addMovie = (newMovie) => ({
+    type: "ADD_MOVIE",
+    payload: newMovie,
+  });
 
     // Create a movie object with the form data
     const newMovie = {
@@ -41,10 +47,9 @@ export default function MovieForm() {
       genre_id: genreId, // Use genreId instead of genre
     };
 
-    dispatch({
-      type: "ADD_MOVIE",
-      payload: newMovie,
-    });
+    // Dispatch the action
+    dispatch(addMovie(newMovie));
+    
     // history.push(`/`);
     console.log("NEW MOVIE ", newMovie);
 
@@ -54,19 +59,6 @@ export default function MovieForm() {
     setImageUrl("");
     setDescription("");
     setGenreId("");
-  };
-
-  // Function to handle genre selection
-  const handleGenreChange = (e) => {
-    const selectedGenre = e.target.value;
-    // Assuming you have a way to map genre names to genre IDs, set genreId accordingly.
-    // For example, if you have a genresData array with objects containing id and name:
-    // const selectedGenreId = genresData.find((genre) => genre.name === selectedGenre)?.id;
-    // setGenreId(selectedGenreId);
-
-    // For now, you can set genreId to the selected genre name as a placeholder.
-    setGenreId(selectedGenre);
-    setGenre(selectedGenre); // Update the displayed genre
   };
 
   return (

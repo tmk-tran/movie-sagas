@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MovieForm from "../MoviesForm/MoviesForm";
+import MovieForm from "../MovieForm/MovieForm";
 
 export default function Movies () {
     return (

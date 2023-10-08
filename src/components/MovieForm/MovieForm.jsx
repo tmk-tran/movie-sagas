@@ -12,7 +12,7 @@ import {
   Button,
   Input,
 } from "@mui/material";
-import "./MoviesForm.css";
+import "./MovieForm.css";
 
 export default function MovieForm() {
   const dispatch = useDispatch();
@@ -22,22 +22,21 @@ export default function MovieForm() {
   const [movieTitle, setMovieTitle] = useState("");
   const [genre, setGenre] = useState("");
   const [description, setDescription] = useState("");
-  // Add a state variable for genreId
   const [genreId, setGenreId] = useState("");
-  console.log("Movie: ", movieTitle);
-  console.log("imageURL: ", imageUrl);
-  console.log("Genre: ", genre);
-  console.log("Description: ", description);
-  console.log("Genre_Id: ", genreId);
+  //   console.log("Movie: ", movieTitle);
+  //   console.log("imageURL: ", imageUrl);
+  //   console.log("Genre: ", genre);
+  //   console.log("Description: ", description);
+  //   console.log("Genre_Id: ", genreId);
 
   const handleClick = (e) => {
     e.preventDefault();
 
-    // Define the action creator within the component
-  const addMovie = (newMovie) => ({
-    type: "ADD_MOVIE",
-    payload: newMovie,
-  });
+    // Define the action creator for dispatch
+    const addMovie = (newMovie) => ({
+      type: "ADD_MOVIE", // --> ADD_MOVIE communicates with the addReducer
+      payload: newMovie,
+    });
 
     // Create a movie object with the form data
     const newMovie = {
@@ -49,9 +48,9 @@ export default function MovieForm() {
 
     // Dispatch the action
     dispatch(addMovie(newMovie));
-    
-    // history.push(`/`);
-    console.log("NEW MOVIE ", newMovie);
+
+    history.push(`/`);
+    alert("Added Movie to Database!");
 
     // Clear the form fields after adding the movie
     setMovieTitle("");
@@ -143,8 +142,9 @@ export default function MovieForm() {
             />
           </FormControl>
 
+          <Button>Cancel</Button>
           <Button onClick={handleClick} variant="contained">
-            click
+            Add Movie
           </Button>
         </form>
       </CardContent>

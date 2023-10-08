@@ -35,7 +35,7 @@ const genres = (state = [], action) => {
 const addReducer = (state = [], action) => {
     switch (action.type) {
       case "ADD_MOVIE":
-        return action.payload;
+        return action.payload; // --> sends to server router to make POST request
       default:
         return state;
     }

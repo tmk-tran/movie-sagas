@@ -41,26 +41,27 @@ function* addMovieSaga(action) {
   }
 }
 
-// function* addMovieSaga(action) {
-//   try {
-//     // Extract the payload directly from the action
-//     const { movieData } = action;
-
-//     // Make a POST request to add the movie
-//     yield axios.post("/api/movie", movieData);
-
-//     // After adding the movie, fetch the updated list of movies
-//     yield put({ type: "FETCH_MOVIES" }); // Dispatch an action to fetch movies
-//   } catch (error) {
-//     console.error("Error adding movie:", error);
-//     alert("Unable to add movie.");
-//   }
-// }
+function* editMovieSaga(action) {
+  console.log("INCOMING: ", action.payload);
+  try {
+    yield axios({
+      method: "PUT",
+      url: `/api/movie/${action.payload.id}`,
+      data: action.payload,
+    });
+    console.log("ADDING: payload is: ", action.payload)
+    yield put({ type: "FETCH_MOVIES" });
+  } catch (error) {
+    console.log(error);
+    alert("Unable to save movie");
+  }
+}
 
 function* rootSaga() {
   yield takeEvery("GET_DETAILS", detailsSaga);
   yield takeEvery("FETCH_MOVIES", fetchAllMovies);
   yield takeEvery("ADD_MOVIE", addMovieSaga);
+  yield takeEvery("EDIT_MOVIE", editMovieSaga);
 }
 
 export default rootSaga;

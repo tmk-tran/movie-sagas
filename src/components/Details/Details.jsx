@@ -1,8 +1,7 @@
+import React, { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-// import Movies from "../Movies/Movies";
 // Styling
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -11,6 +10,7 @@ import { Button } from "@mui/material";
 import "./Details.css";
 
 export default function Details() {
+  const [showDescription, setShowDescription] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const paramsObject = useParams();
@@ -20,6 +20,7 @@ export default function Details() {
   console.log("DETAILS:", movieDetails);
 
   // Variables defining the categories in the object from the _rootReducer, details.detailsReducer
+  const id = movieDetails.movie_id;
   const title = movieDetails.movie_title;
   const poster = movieDetails.movie_poster;
   const genreList = movieDetails.genres;
@@ -33,9 +34,17 @@ export default function Details() {
     });
   }, []);
 
-  function goBack() {
+  const goBack = () => {
     history.push("/");
-  }
+  };
+
+  const editClick = () => {
+    dispatch({
+      type: "EDIT_MOVIE",
+      payload: { id, title, description },
+    });
+    history.push("/edit/:id");
+  };
 
   return (
     <>
@@ -46,26 +55,41 @@ export default function Details() {
             borderRadius: "15px",
           }}
         >
-          <CardContent style={{ backgroundColor: "aliceblue" }}>
-            <Button
-              onClick={goBack}
-              variant="contained"
-              style={{ marginBottom: "10px" }}
-            >
-              Back
-            </Button>
-            <br />
+          <CardContent style={{ backgroundColor: "rgba(3, 0, 0, 0.94)"}}>
+            <div className="buttons-details">
+              <Button onClick={goBack} variant="contained">
+                Back
+              </Button>
+              <Button onClick={editClick} variant="outlined">
+                Edit
+              </Button>
+            </div>
             <img src={poster} />
             <br />
-            <Typography variant="h4" style={{ fontFamily: "gotham" }}>
+            <Typography variant="h4" style={{ fontFamily: "gotham", color: "ghostwhite" }}>
               {title}
             </Typography>
             <br />
-            <Typography variant="caption" style={{ fontFamily: "avenir" }}>
-              {description}
-            </Typography>
-            <br />
-            <Typography variant="h5" style={{ fontFamily: "gotham" }}>
+
+            <Button
+              onClick={() => setShowDescription(!showDescription)} // Toggle the state on button click
+              variant="outlined"
+              style={{ borderRadius: "20px" }}
+            >
+              {showDescription ? "Hide Description" : "Show Description"}
+            </Button>
+            {/* Conditionally render the description based on the state */}
+            {showDescription && (
+              <div>
+                <hr />
+                <Typography variant="caption" style={{ fontFamily: "avenir", color: "ghostwhite" }}>
+                  {description}
+                </Typography>
+              </div>
+            )}
+            <hr />
+
+            <Typography variant="h5" style={{ fontFamily: "gotham", color: "ghostwhite" }}>
               Genres:{" "}
               {genreList && genreList.length > 0 ? (
                 <span>

@@ -1,0 +1,9 @@
+.edit-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 50px;
+}
+
+.edit-card {
+    margin-top: 25px;
+}

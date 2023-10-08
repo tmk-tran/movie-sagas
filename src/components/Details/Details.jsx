@@ -1,15 +1,12 @@
 import { useHistory, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-// import Movies from "../Movies/Movies";
 // Styling
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import "./Details.css";
-import detailsReducer from "../../redux/reducer/details.reducer";
 
 export default function Details() {
   const dispatch = useDispatch();
@@ -35,9 +32,17 @@ export default function Details() {
     });
   }, []);
 
-  function goBack() {
+  const goBack = () => {
     history.push("/");
-  }
+  };
+
+  const editClick = () => {
+    dispatch({
+      type: "EDIT_MOVIE",
+      payload: { id, title, description },
+    });
+    history.push("/edit/:id");
+  };
 
   return (
     <>
@@ -53,15 +58,7 @@ export default function Details() {
               <Button onClick={goBack} variant="contained">
                 Back
               </Button>
-              <Button
-                onClick={() =>
-                  dispatch({
-                    type: "EDIT_MOVIE",
-                    payload: { id, title, description },
-                  })
-                }
-                variant="outlined"
-              >
+              <Button onClick={editClick} variant="outlined">
                 Edit
               </Button>
             </div>

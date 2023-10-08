@@ -26,6 +26,10 @@ export default function Details() {
   const description = movieDetails.movie_description;
   console.log("Movie Title:", title);
 
+//   const [selectedMovie, setSelectedMovie] = useState(
+//     favorite.movie_id
+//   );
+
   useEffect(() => {
     dispatch({
       type: "GET_DETAILS",
@@ -48,13 +52,18 @@ export default function Details() {
         >
           <CardContent style={{ backgroundColor: "aliceblue" }}>
             <div className="buttons-details">
-              <Button
-                onClick={goBack}
-                variant="contained"
-              >
+              <Button onClick={goBack} variant="contained">
                 Back
               </Button>
-              <Button variant="outlined">
+              <Button
+                onClick={() =>
+                  dispatch({
+                    type: "UPDATE_MOVIE",
+                    payload: { },
+                  })
+                }
+                variant="outlined"
+              >
                 Edit
               </Button>
             </div>

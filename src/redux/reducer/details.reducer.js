@@ -33,12 +33,22 @@ const genres = (state = [], action) => {
 
 // Add reducer
 const addReducer = (state = [], action) => {
-    switch (action.type) {
-      case "ADD_MOVIE":
-        return action.payload; // --> sends to server router to make POST request
-      default:
-        return state;
-    }
-  };
+  switch (action.type) {
+    case "ADD_MOVIE":
+      return action.payload; // --> sends to server router to make POST request
+    default:
+      return state;
+  }
+};
 
-export default combineReducers({ detailsReducer, addReducer, movies, genres });
+// Edit reducer
+const editReducer = (state = [], action) => {
+  switch (action.type) {
+    case "EDIT_MOVIE":
+      return action.payload; // --> sends to server router to make PUT request
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({ detailsReducer, addReducer, movies, genres, editReducer });

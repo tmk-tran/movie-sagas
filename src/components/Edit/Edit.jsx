@@ -22,15 +22,14 @@ export default function Edit() {
 
   // bring in details from the _rootReducer
   const editDetails = useSelector((store) => store.details.editReducer);
-//   console.log("IN EDIT DETAILS, DETAILS ARE: ", editDetails, "ID: ", editDetails.id);
+  //   console.log("IN EDIT DETAILS, DETAILS ARE: ", editDetails, "ID: ", editDetails.id);
   // Function to toggle edit mode
   const toggleEditMode = () => {
     setShowInput(!showInput);
     // If entering edit mode, initialize the input with the current title
     if (!showInput) {
-      setEditedTitle("");
-    } else {
-      setEditedTitle(editDetails.title); // clear the input field in edit mode
+      setEditedTitle(editDetails.title);
+      setEditedDescription(editDetails.description);
     }
   };
 
@@ -51,8 +50,8 @@ export default function Edit() {
     // Dispatch the action
     dispatch(editMovie(newInfo));
 
-    // history.push(`/`);
-    // alert("Edited Movie, sent to Database!");
+    history.push(`/`);
+    alert("Adding New Information!");
 
     // Clear the form fields after adding the movie
     setEditedTitle("");
@@ -76,11 +75,15 @@ export default function Edit() {
         >
           <CardContent style={{ color: "ghostwhite" }}>
             <br />
+            <Typography variant="h5" style={{ color: "white" }}>
+              Title
+            </Typography>
             <br />
             {/* Conditionally render the title */}
             {showInput ? (
               <TextField
                 type="text"
+                fullWidth
                 value={editedTitle}
                 placeholder="Enter New Title"
                 onChange={(e) => setEditedTitle(e.target.value)}
@@ -90,38 +93,47 @@ export default function Edit() {
               <Typography variant="h4">{editDetails.title}</Typography>
             )}
             {/* Toggle edit mode button */}
-            <br />
-            <Button onClick={toggleEditMode} style={{ color: "red" }}>
+            <Button id="edit" variant="outlined" onClick={toggleEditMode}>
               {showInput ? "Back" : "Edit Title"}
             </Button>{" "}
             <br />
             <hr />
             <br />
+            <Typography variant="h5" style={{ color: "white" }}>
+              Description
+            </Typography>
+            <br />
             {showInput ? (
               <TextField
                 type="text"
+                multiline
+                rows="10"
                 value={editedDescription}
                 placeholder="Enter New Description..."
                 onChange={(e) => setEditedDescription(e.target.value)}
-                style={{ backgroundColor: "aliceblue" }}
+                style={{ backgroundColor: "aliceblue", width: "100%" }}
               />
             ) : (
               <Typography variant="h6">{editDetails.description}</Typography>
             )}
             {/* Toggle edit mode button */}
-            <br />
-            <Button onClick={toggleEditMode} style={{ color: "red" }}>
+            <Button id="edit" variant="outlined" onClick={toggleEditMode}>
               {showInput ? "Back" : "Edit Description"}
             </Button>{" "}
           </CardContent>
           <div className="edit-buttons">
             <Button
+              id="cancel-button"
               variant="outlined"
               onClick={() => history.push("/details/:id")}
             >
               Cancel
             </Button>
-            <Button variant="contained" onClick={handleClick}>
+            <Button
+              variant="contained"
+              onClick={handleClick}
+              style={{ backgroundColor: "rgb(134, 22, 208)" }}
+            >
               Save
             </Button>
           </div>

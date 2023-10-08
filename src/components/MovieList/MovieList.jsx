@@ -80,7 +80,10 @@ function MovieList() {
       >
         {movies.map((movie) => (
           <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>
-            <Card className="movie-card">
+            <Card
+              className="movie-card"
+              onClick={() => history.push(`/details/${movie.id}`)}
+            >
               <CardContent>
                 <img
                   className="movie-image"
@@ -91,7 +94,10 @@ function MovieList() {
                 />
                 <br />
                 <br />
-                <Typography variant="h5" style={{ fontFamily: "Trajan Pro", color: "ghostwhite" }}>
+                <Typography
+                  variant="h5"
+                  style={{ fontFamily: "Trajan Pro", color: "ghostwhite" }}
+                >
                   {movie.title}
                 </Typography>
               </CardContent>

@@ -79,3 +79,74 @@ VALUES
 (12,6), (12,3),           -- Social Net
 (13,6), (13,10), (13,1),  -- Titanic
 (14,1), (14,2), (14,4);   -- Toy Story
+
+
+----{ Additional SQL for joining tables: }-----
+---{ 1st JOIN }---
+SELECT
+    m.id AS movie_id,
+    m.title AS movie_title,
+    m.poster AS movie_poster,
+    m.description AS movie_description,
+    ARRAY_AGG(g.name) AS genres
+FROM
+    movies AS m
+JOIN
+    movies_genres AS mg ON m.id = mg.movie_id
+JOIN
+    genres AS g ON mg.genre_id = g.id
+WHERE
+    m.id = 1
+GROUP BY
+    m.id, m.title, m.poster, m.description;
+/*
+
+SELECT Clause:
+m.id AS movie_id: Select the id column from the movies table and alias it as movie_id.
+m.title AS movie_title: Select the title column from the movies table and alias it as movie_title.
+m.poster AS movie_poster: Select the poster column from the movies table and alias it as movie_poster.
+m.description AS movie_description: Select the description column from the movies table and alias it as movie_description.
+
+ARRAY_AGG(g.name) AS genres: Use the ARRAY_AGG function to aggregate the name column from the genres table into an array and alias it as genres.
+FROM Clause:
+movies AS m: Alias the movies table as m for brevity.
+
+JOIN Clause:
+JOIN movies_genres AS mg ON m.id = mg.movie_id: Join the movies table (m) with the movies_genres table (mg) using the id column from movies and movie_id column from movies_genres.
+JOIN genres AS g ON mg.genre_id = g.id: Join the movies_genres table (mg) with the genres table (g) using the genre_id column from movies_genres and the id column from genres.
+
+WHERE Clause:
+m.id = 1: Filter the results to only include rows where the id column from the movies table is equal to 1. This limits the query to retrieve information for a specific movie with an ID of 1.
+
+GROUP BY Clause:
+GROUP BY m.id, m.title, m.poster, m.description: Group the results by the id, title, poster, and description columns from the movies table. This ensures that the aggregation function (ARRAY_AGG) works on grouped data, and each group represents a unique movie
+
+*/
+
+
+
+
+--{ 2nd JOIN }---
+SELECT
+  movies.id,
+  movies.title,
+  movies.poster,
+  movies.description,
+  JSON_AGG(genres.name) AS genres
+FROM
+  movies
+LEFT JOIN
+  movies_genres ON movies.id = movies_genres.movie_id
+LEFT JOIN
+  genres ON movies_genres.genre_id = genres.id
+GROUP BY
+  movies.id, movies.title, movies.poster, movies.description;
+
+
+/* 
+- Select the movie's id, title, poster, and description.
+- Use LEFT JOIN to join the movies table with the movies_genres table to get the genre associations.
+- Then join the genres table to get the actual genre names.
+- Use JSON_AGG(genres.name) to aggregate the genre names into a JSON array for each movie.
+- Finally, group the results by movie attributes to ensure each movie is only listed once in the result set. 
+*/

@@ -1,4 +1,41 @@
-.movies {
-    display : flex;
-    flex-wrap: wrap;
+/* Container for the movies */
+.movie-container {
+  display: flex;
+  flex-wrap: nowrap; /* Display movies in a single row */
+  transition: transform 0.3s ease; /* Smooth transition when scrolling */
+  overflow: hidden;
+  width: 1000px; /* Adjust to match card width * numVisibleCards */
+  height: 600px;
+}
+
+/* Individual movie card */
+.movie-card {
+  width: 300px; /* Set a fixed width for the cards including margin */
+  height: 500px; /* Set a fixed height for the cards */
+  margin: 50px 25px;
+}
+
+.movie-card:hover {
+  /* Apply a scale transform on hover */
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+  transition: box-shadow 0.3s ease; /* Add a smooth transition */
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+}
+
+.MuiCard-root {
+  background-color: black;
+  color: ghostwhite;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.movie-card.css-bhp9pd-MuiPaper-root-MuiCard-root {
+  background-color: rgba(141, 146, 154, 0.911);
+  border-radius: 10px;
+}
+
+/* Container for the entire movie row */
+.movie-row {
+  overflow-x: hidden;
+  overflow-y: visible;
+  width: 1050px; /* Adjust to match card width * numVisibleCards */
+  margin: 0 auto; /* Center the container horizontally */
 }

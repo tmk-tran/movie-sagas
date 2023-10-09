@@ -71,7 +71,6 @@ export default function Details() {
       genres: newGenre,
     };
     dispatch(addGenre(newGenre));
-    console.log(newGenre);
 
     // alert("Added Movie to Database!");
 

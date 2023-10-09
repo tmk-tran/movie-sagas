@@ -4,7 +4,7 @@
 A practice project with focus on:
 ## React-Redux with Redux-Sagas ##
 
-This project had two separate parts to work on:
+This project had two separate parts that I worked on:
 
 1. Adding features to an existing Movie App with React-Redux and Redux-Sagas
 2. Practicing SQL
@@ -17,7 +17,7 @@ For this weekend challenge I expanded on a movie management application, with th
 
  "We're already able to see movies that exist in our DB. We'll need to be able to see detailed view for each individual movie, including all genres associated with that movie. This is a very common pattern, to go from a list to showing more information about a single item."
 
-I added the ability to view movie details when the image of the movie is clicked, used conditional rendering to display data, and a variety of other methods to practice the techniques I have learned through Emerging Digital Academy's Koss Cohort Tier 2 curriculum. This project has a strong focus on Redux and the use of Sagas.
+I added the ability to view movie details when the image of the movie is clicked, used conditional rendering to display data, and a variety of other methods to practice the techniques I have learned through Emerging Digital Academy's Koss Cohort Tier 2 curriculum. 
 
 ## Screen Shots
 

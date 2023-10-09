@@ -1,5 +1,5 @@
 .details-card {
-    width: 50%; 
+    /* width: 50%;  */
     margin: 15px auto;
     /* border-radius: 15px; */
 }
@@ -8,4 +8,8 @@
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
+}
+
+#edit-icon:hover {
+    transform: scale(1.4);
 }

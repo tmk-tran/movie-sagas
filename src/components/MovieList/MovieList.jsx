@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import "./MovieList.css";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { Grid, Button, Typography, IconButton } from "@mui/material";
+import { Grid, Typography, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 

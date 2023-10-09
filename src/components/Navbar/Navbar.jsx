@@ -4,6 +4,7 @@ import { AppBar, Tabs, Tab } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import TheatersIcon from "@mui/icons-material/Theaters";
 import SearchIcon from "@mui/icons-material/Search";
+import PersonIcon from '@mui/icons-material/Person';
 
 import "./Navbar.css";
 
@@ -72,7 +73,7 @@ function Navbar() {
                 alignItems: "center",
               }}
             >
-              <SearchIcon />
+              <PersonIcon />
               <span>User</span>
             </div>
           }

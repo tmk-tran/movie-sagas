@@ -1,5 +1,5 @@
 #navbar {
-  background-color: rgba(49, 6, 6, 0.326);
+  background-color: rgba(15, 2, 2, 0.459);
 }
 
 #link:hover {
@@ -9,6 +9,7 @@
 
 #link {
   color: whitesmoke;
+  margin: 0 10px;
 }
 
 .navbar {

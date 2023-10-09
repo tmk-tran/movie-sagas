@@ -17,3 +17,13 @@
   left: 0;
   width: 100%;
 }
+
+/* Media Query for Smaller Screens */
+@media screen and (max-width: 768px) {
+  /* Adjust styles for smaller screens here */
+  .navbar {
+    position: relative; /* Change to relative positioning for smaller screens */
+    bottom: auto;
+    width: auto; /* Allow navbar to expand to content width */
+  }
+}

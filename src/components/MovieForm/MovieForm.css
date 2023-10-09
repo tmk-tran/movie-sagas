@@ -7,10 +7,10 @@
 .form-control {
   width: 100%;
   margin-bottom: 20px;
-  background-color: rgb(177, 177, 229);
-  border-radius: 15px;
+  background-color: rgba(177, 177, 229, 0.745);
+  border-radius: 10px;
 }
 
 .form-buttons {
-  margin-top: 15px;
+  margin-top: 20px;
 }

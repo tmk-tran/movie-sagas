@@ -85,9 +85,9 @@ export default function MovieForm() {
               className="form-control"
               labelId="dropdown-label"
               id="dropdown"
-              displayEmpty
               variant="outlined"
               required
+              style={{borderRadius: "10px"}}
               value={genre} // Bind the value to the genre state
               onChange={(e) => {
                 setGenre(e.target.value);

@@ -58,3 +58,22 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+/* Media Query for Smaller Screens */
+@media screen and (max-width: 768px) {
+  /* Adjust styles for smaller screens here */
+  .movie-container {
+    width: auto; /* Let it expand to the content width */
+    overflow-x: scroll; /* Add horizontal scroll for smaller screens */
+  }
+
+  .movie-card {
+    width: 80%; /* Adjust card width for smaller screens */
+    height: auto; /* Allow the height to adapt */
+    margin: 50px auto; /* Center cards horizontally */
+  }
+
+  .movie-row {
+    width: 100%; /* Full width for smaller screens */
+  }
+}

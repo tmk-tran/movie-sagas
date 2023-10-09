@@ -1,6 +1,12 @@
-#welcome-card {
-    margin: 10% auto;
+.welcome-div {
     background-color: black;
+    height: 600px;
+}
+
+#welcome-card {
+    margin: 5% auto;
+    background-color: black;
+    height: 500px;
 }
 
 .welcome-image {

@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.text-with-shadow {
+  font-weight: bold;
+  font-family: Proxima Nova;
+  font-size: 60px;
+  /* color: ghostwhite; */
+  background-color: red;
+  padding: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Adjust the values as needed:
+     - 2px: Horizontal offset
+     - 2px: Vertical offset
+     - 4px: Blur radius
+     - rgba(0, 0, 0, 0.5): Shadow color and opacity */
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
@@ -20,10 +35,6 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-h1,h2 {
-  color: ghostwhite;
 }
 
 body {

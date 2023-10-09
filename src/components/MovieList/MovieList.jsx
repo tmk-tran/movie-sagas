@@ -5,30 +5,33 @@ import { useHistory } from "react-router-dom";
 import "./MovieList.css";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { Grid, Button, Typography } from "@mui/material";
+import { Grid, Button, Typography, IconButton } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function MovieList() {
   const dispatch = useDispatch();
   const history = useHistory();
   // bring in the reducer holding the movies
   const movies = useSelector((store) => store.details.movies);
-  console.log(movies);
+  const genres = useSelector((store) => store.genres.genres);
+  console.log("MOVIES: ", movies);
+  console.log("GENRES: ", genres);
 
   // grab movies on page load
   useEffect(() => {
     dispatch({ type: "FETCH_MOVIES" });
+    dispatch({ type: "FETCH_GENRES" }); // --> action creator for saga
   }, []);
 
   const scrollContainerRef = React.useRef(null);
   const cardWidth = 220; // Adjust to match card width including margin
   const numVisibleCards = 3; // Number of cards to display at a time
   const totalWidth = cardWidth * movies.length;
-  console.log("what are you", scrollContainerRef);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.style.transition =
-        "transform 0.5s ease-in-out";
+      scrollContainerRef.current.style.transition = "transform 1s ease-in-out";
       scrollContainerRef.current.style.transform = `translateX(${
         cardWidth * numVisibleCards
       }px)`; // Scroll 'numVisibleCards' at a time
@@ -43,14 +46,13 @@ function MovieList() {
             );
           }
         }
-      }, 300);
+      }, 400);
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.style.transition =
-        "transform 0.5s ease-in-out";
+      scrollContainerRef.current.style.transition = "transform 1s ease-in-out";
       scrollContainerRef.current.style.transform = `translateX(-${
         cardWidth * numVisibleCards
       }px)`; // Scroll 'numVisibleCards' at a time
@@ -72,15 +74,17 @@ function MovieList() {
 
   return (
     <div className="movie-row">
-      <h1>Movies</h1>
       <div
         className="movie-container"
         ref={scrollContainerRef}
         style={{ width: `${totalWidth}px` }}
       >
-        {movies.map((movie) => (
+        {genres.map((movie) => (
           <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>
-            <Card className="movie-card">
+            <Card
+              className="movie-card"
+              onClick={() => history.push(`/details/${movie.id}`)}
+            >
               <CardContent>
                 <img
                   className="movie-image"
@@ -91,8 +95,14 @@ function MovieList() {
                 />
                 <br />
                 <br />
-                <Typography variant="h5" style={{ fontFamily: "Trajan Pro", color: "ghostwhite" }}>
+                <Typography
+                  variant="h5"
+                  style={{ fontFamily: "Proxima Nova", color: "ghostwhite" }}
+                >
                   {movie.title}
+                </Typography>
+                <Typography variant="caption" style={{ color: "ghostwhite" }}>
+                  {movie.genres}
                 </Typography>
               </CardContent>
             </Card>
@@ -100,17 +110,18 @@ function MovieList() {
         ))}
       </div>
       <br />
-      <div>
-        <Button
+      <div className="arrow-buttons">
+        <IconButton
+          id="arrows"
           onClick={scrollLeft}
           variant="contained"
           style={{ marginRight: "5px" }}
         >
-          Left
-        </Button>
-        <Button onClick={scrollRight} variant="contained">
-          Right
-        </Button>
+          <ArrowBackIcon id="icon-arrow" />
+        </IconButton>
+        <IconButton id="arrows" onClick={scrollRight} variant="contained">
+          <ArrowForwardIcon id="icon-arrow" />
+        </IconButton>
       </div>
     </div>
   );

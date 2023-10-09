@@ -13,6 +13,7 @@ import "./Details.css";
 
 export default function Details() {
   const [showDescription, setShowDescription] = useState(false);
+  const [showGenreEdit, setShowGenreEdit] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const paramsObject = useParams();
@@ -47,6 +48,13 @@ export default function Details() {
     });
     history.push("/edit/:id");
   };
+
+  const genreClick = () => {
+    setShowGenreEdit(!showGenreEdit);
+    console.log(showGenreEdit);
+  }
+
+  
 
   return (
     <div className="details-box">
@@ -119,6 +127,11 @@ export default function Details() {
               </span> /* joins the strings with a comma seprating them i.e. 'action, adeventure' */
             ) : (
               <span>No Genres Listed</span>
+            )}
+            <br />
+            <Button onClick={genreClick}>Edit Genres</Button>
+            {showGenreEdit && (
+                <input type="text" />
             )}
           </Typography>
           <br />

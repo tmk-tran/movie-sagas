@@ -16,16 +16,17 @@ export default function Edit() {
   const history = useHistory();
 
   const [showInput, setShowInput] = useState(false);
-  //   const [editId, setEditId] = useState(details.editReducer.id);
   const [editedTitle, setEditedTitle] = useState(""); // State for edited title
   const [editedDescription, setEditedDescription] = useState(""); // State for edited description
 
   // bring in details from the _rootReducer
   const editDetails = useSelector((store) => store.details.editReducer);
   //   console.log("IN EDIT DETAILS, DETAILS ARE: ", editDetails, "ID: ", editDetails.id);
+  
   // Function to toggle edit mode
   const toggleEditMode = () => {
     setShowInput(!showInput);
+    
     // If entering edit mode, initialize the input with the current title
     if (!showInput) {
       setEditedTitle(editDetails.title);
@@ -61,9 +62,6 @@ export default function Edit() {
 
   return (
     <div>
-      <Typography variant="h2" style={{ fontFamily: "open sans" }}>
-        Edit Movie
-      </Typography>
       <div className="edit-card">
         <Card
           style={{
@@ -74,11 +72,10 @@ export default function Edit() {
           }}
         >
           <CardContent style={{ color: "ghostwhite" }}>
-            <br />
-            <Typography variant="h5" style={{ color: "white" }}>
-              Title
-            </Typography>
-            <br />
+            {/* Toggle edit mode button */}
+            <Button id="edit" variant="outlined" onClick={toggleEditMode}>
+              {showInput ? "Back" : "Edit"}
+            </Button>{" "}
             {/* Conditionally render the title */}
             {showInput ? (
               <TextField
@@ -92,16 +89,9 @@ export default function Edit() {
             ) : (
               <Typography variant="h4">{editDetails.title}</Typography>
             )}
-            {/* Toggle edit mode button */}
-            <Button id="edit" variant="outlined" onClick={toggleEditMode}>
-              {showInput ? "Back" : "Edit Title"}
-            </Button>{" "}
             <br />
             <hr />
             <br />
-            <Typography variant="h5" style={{ color: "white" }}>
-              Description
-            </Typography>
             <br />
             {showInput ? (
               <TextField
@@ -116,10 +106,6 @@ export default function Edit() {
             ) : (
               <Typography variant="h6">{editDetails.description}</Typography>
             )}
-            {/* Toggle edit mode button */}
-            <Button id="edit" variant="outlined" onClick={toggleEditMode}>
-              {showInput ? "Back" : "Edit Description"}
-            </Button>{" "}
           </CardContent>
           <div className="edit-buttons">
             <Button

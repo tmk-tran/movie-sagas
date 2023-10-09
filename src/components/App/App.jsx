@@ -5,6 +5,7 @@ import Details from "../Details/Details";
 import MovieList from "../MovieList/MovieList";
 import Movies from "../Movies/Movies";
 import Edit from "../Edit/Edit";
+import Search from "../Search/Search";
 import "./App.css";
 import Navbar from "../Navbar/Navbar";
 
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path="/edit/:id">
           <Edit />
+        </Route>
+        <Route path="/search">
+          <Search />
         </Route>
         <div className="navbar">
           <Navbar />

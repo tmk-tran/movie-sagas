@@ -102,7 +102,7 @@ function MovieList() {
                   {movie.title}
                 </Typography>
                 <Typography variant="caption" style={{ color: "ghostwhite" }}>
-                  {movie.genres}
+                  {movie.genres.join(", ")}
                 </Typography>
               </CardContent>
             </Card>

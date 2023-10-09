@@ -77,9 +77,7 @@ export default function Details() {
               Edit
             </IconButton>
           </div>
-          <img
-            src={poster}
-          />
+          <img src={poster} />
           <br />
           <Typography
             variant="h4"

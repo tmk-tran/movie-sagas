@@ -26,7 +26,7 @@ function Navbar() {
             </div>
           }
           component={Link}
-          to="/"
+          to="/home"
         />
         <Tab
           id="link"
@@ -61,6 +61,23 @@ function Navbar() {
           }
           component={Link}
           to="/search"
+        />
+        <Tab
+          id="link"
+          label={
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <SearchIcon />
+              <span>User</span>
+            </div>
+          }
+          component={Link}
+          to="/"
         />
         {/* Add more Tab components for additional links */}
       </Tabs>

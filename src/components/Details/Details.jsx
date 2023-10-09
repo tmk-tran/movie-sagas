@@ -35,7 +35,7 @@ export default function Details() {
   }, []);
 
   const goBack = () => {
-    history.push("/");
+    history.push("/home");
   };
 
   const editClick = () => {
@@ -55,7 +55,7 @@ export default function Details() {
             borderRadius: "15px",
           }}
         >
-          <CardContent style={{ backgroundColor: "rgba(3, 0, 0, 0.94)"}}>
+          <CardContent style={{ backgroundColor: "rgba(3, 0, 0, 0.94)" }}>
             <div className="buttons-details">
               <Button onClick={goBack} variant="contained">
                 Back
@@ -66,7 +66,10 @@ export default function Details() {
             </div>
             <img src={poster} />
             <br />
-            <Typography variant="h4" style={{ fontFamily: "gotham", color: "ghostwhite" }}>
+            <Typography
+              variant="h4"
+              style={{ fontFamily: "gotham", color: "ghostwhite" }}
+            >
               {title}
             </Typography>
             <br />
@@ -82,14 +85,20 @@ export default function Details() {
             {showDescription && (
               <div>
                 <hr />
-                <Typography variant="caption" style={{ fontFamily: "avenir", color: "ghostwhite" }}>
+                <Typography
+                  variant="caption"
+                  style={{ fontFamily: "avenir", color: "ghostwhite" }}
+                >
                   {description}
                 </Typography>
               </div>
             )}
             <hr />
 
-            <Typography variant="h5" style={{ fontFamily: "gotham", color: "ghostwhite" }}>
+            <Typography
+              variant="h5"
+              style={{ fontFamily: "gotham", color: "ghostwhite" }}
+            >
               Genres:{" "}
               {genreList && genreList.length > 0 ? (
                 <span>

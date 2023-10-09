@@ -1,0 +1,23 @@
+#welcome-card {
+    margin: 10% auto;
+    background-color: black;
+}
+
+.welcome-image {
+    margin: 15px auto;
+}
+
+.welcome-text {
+    color: ghostwhite;
+    font-family: Bangla MN;
+    margin: 10px auto;
+    padding: 10px
+}
+
+.enter {
+    color: ghostwhite;
+}
+
+.enter:hover {
+    transform: scale(1.3);
+}

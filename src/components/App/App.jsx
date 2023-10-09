@@ -6,6 +6,7 @@ import MovieList from "../MovieList/MovieList";
 import Movies from "../Movies/Movies";
 import Edit from "../Edit/Edit";
 import Search from "../Search/Search";
+import Welcome from "../Welcome/Welcome";
 import "./App.css";
 import Navbar from "../Navbar/Navbar";
 
@@ -15,6 +16,9 @@ function App() {
       <h1 className="text-with-shadow">SagaFlix</h1>
       <Router>
         <Route path="/" exact>
+          <Welcome />
+        </Route>
+        <Route path="/home">
           <MovieList />
         </Route>
         <Route path="/details/:id">

@@ -43,13 +43,13 @@ export default function MovieForm() {
       title: movieTitle,
       poster: imageUrl,
       description: description,
-      genre_id: genreId, 
+      genre_id: genreId,
     };
 
     // Dispatch the action
     dispatch(addMovie(newMovie));
 
-    history.push(`/`);
+    history.push(`/home`);
     alert("Added Movie to Database!");
 
     // Clear the form fields after adding the movie
@@ -61,7 +61,10 @@ export default function MovieForm() {
   };
 
   return (
-    <Card className="movie-form-card" style={{ borderRadius: "25px", backgroundColor: "rgba(0, 0, 0, 0.76)"}}>
+    <Card
+      className="movie-form-card"
+      style={{ borderRadius: "25px", backgroundColor: "rgba(0, 0, 0, 0.76)" }}
+    >
       <CardContent>
         <form>
           <FormControl fullWidth>
@@ -71,8 +74,7 @@ export default function MovieForm() {
               variant="outlined"
               value={movieTitle}
               required
-              onChange={(e) => setMovieTitle(e.target.value)
-              }
+              onChange={(e) => setMovieTitle(e.target.value)}
             />
           </FormControl>
           <br />
@@ -90,7 +92,7 @@ export default function MovieForm() {
               onChange={(e) => {
                 setGenre(e.target.value);
                 setGenreId(e.target.value); // Set genreId when genre changes
-              }}
+              }} // *** Need to rewrite what is below like group project example***
             >
               <MenuItem value="" disabled></MenuItem>
               <MenuItem value={1}>Adventure</MenuItem>
@@ -126,7 +128,6 @@ export default function MovieForm() {
               type="file"
               id="image-upload"
               accept="image/*"
-              required
             />
           </FormControl>
 
@@ -142,11 +143,12 @@ export default function MovieForm() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </FormControl>
-
-          <Button onClick={()=> history.push('/')}>Cancel</Button>
-          <Button onClick={handleClick} variant="contained">
-            Add Movie
-          </Button>
+          <div className="form-buttons">
+            <Button onClick={() => history.push("/")}>Cancel</Button>
+            <Button onClick={handleClick} variant="contained">
+              Add Movie
+            </Button>
+          </div>
         </form>
       </CardContent>
     </Card>

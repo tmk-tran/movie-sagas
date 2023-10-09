@@ -1,5 +1,5 @@
 .movie-form-card {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 10px;
 }
@@ -9,4 +9,8 @@
   margin-bottom: 20px;
   background-color: rgb(177, 177, 229);
   border-radius: 15px;
+}
+
+.form-buttons {
+  margin-top: 15px;
 }

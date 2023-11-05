@@ -21,10 +21,27 @@ I added the ability to view movie details when the image of the movie is clicked
 
 ## Screen Shots
 
+### Welcome Screen
 ![Welcome Screen](image.png)
-![Main App View](image-1.png)
-![Details View](image-3.png)
-![Add Movie Form](image-2.png)
+
+### Movies View Page
+![Movies View](image-1.png)
+
+### Select Movie Page
+![Select Movie](image-2.png)
+
+### Movie Details Page
+![Movie Details](image-3.png)
+
+### Edit Movie Details View
+![Edit Movie](image-4.png)
+
+### Edit Form Details Page
+![Edit Form](image-5.png)
+
+### Add Movie Form
+![Add Movie](image-6.png)
+
 
 ## Installation
 

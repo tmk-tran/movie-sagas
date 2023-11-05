@@ -9,6 +9,11 @@ This project had two separate parts that I worked on:
 1. Adding features to an existing Movie App with React-Redux and Redux-Sagas
 2. Practicing SQL
 
+## Table of Contents
+[Installation](#installation)
+[Screen Shots](#screen-shots)
+[Usage](#usage)
+
 ## Description
 
 Movie App, named 'SagaFlix'. Slight clone of the one and only, NetFlix.

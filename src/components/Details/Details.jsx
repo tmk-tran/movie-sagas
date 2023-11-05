@@ -14,13 +14,18 @@ import "./Details.css";
 export default function Details() {
   const [showDescription, setShowDescription] = useState(false);
   const [showGenreEdit, setShowGenreEdit] = useState(false);
+  const [newGenre, setNewGenre] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
   const paramsObject = useParams();
 
   // bring in details from the _rootReducer
   const movieDetails = useSelector((store) => store.details.detailsReducer);
+  const genreDetails = useSelector((store) => store.genres.genres);
   console.log("DETAILS:", movieDetails);
+
+  console.log("GENRE INFO:", genreDetails);
+
 
   // Variables defining the categories in the object from the _rootReducer, details.detailsReducer
   const id = movieDetails.movie_id;
@@ -52,9 +57,26 @@ export default function Details() {
   const genreClick = () => {
     setShowGenreEdit(!showGenreEdit);
     console.log(showGenreEdit);
-  }
+  };
 
-  
+  const saveGenre = () => {
+
+    // Define the action creator for dispatch
+    const addGenre = () => ({
+      type: "SET_GENRES", // --> SET_GENRES communicates with the genreReducer
+      payload: newInput,
+    });
+
+    const newInput = {
+      genres: newGenre,
+    };
+    dispatch(addGenre(newGenre));
+
+    // alert("Added Movie to Database!");
+
+    setShowGenreEdit(false);
+    setNewGenre("");
+  };
 
   return (
     <div className="details-box">
@@ -121,18 +143,23 @@ export default function Details() {
             style={{ fontFamily: "gotham", color: "ghostwhite" }}
           >
             Genres:{" "}
-            {genreList && genreList.length > 0 ? (
-              <span>
-                {genreList.join(", ")}
-              </span> /* joins the strings with a comma seprating them i.e. 'action, adeventure' */
+            {showGenreEdit ? (
+              <div>
+                <input
+                  type="text"
+                  value={newGenre}
+                  onChange={(e) => setNewGenre(e.target.value)}
+                  placeholder="Enter genres..."
+                />
+                <button onClick={saveGenre}>Save</button>
+              </div>
+            ) : genreList && genreList.length > 0 ? (
+              <span>{genreList.join(", ")}</span>
             ) : (
               <span>No Genres Listed</span>
             )}
             <br />
-            <Button onClick={genreClick}>Edit Genres</Button>
-            {showGenreEdit && (
-                <input type="text" />
-            )}
+            <button onClick={genreClick}>Edit Genres</button>
           </Typography>
           <br />
         </CardContent>

@@ -28,7 +28,7 @@ I added the ability to view movie details when the image of the movie is clicked
 ![Movies View](image-1.png)
 
 ### Select Movie Page
-![Select Movie Page](image-2.png)
+![Alt text](image-2.png)
 
 ### Movie Details Page
 ![Movie Details](image-3.png)

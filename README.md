@@ -10,9 +10,9 @@ This project had two separate parts that I worked on:
 2. Practicing SQL
 
 ## Table of Contents
-[Installation](#installation)
-[Screen Shots](#screen-shots)
-[Usage](#usage)
+- [Installation](#installation)
+- [Screen Shots](#screen-shots)
+- [Usage](#usage)
 
 ## Description
 

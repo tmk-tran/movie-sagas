@@ -82,4 +82,4 @@ The App is designed to scroll through a list of movies, and display movie detail
 Thanks to [Emerging Digital Academy](https://emergingacademy.org) who equipped and helped me to make this application a reality. 
 
 ## Support
-If you have suggestions or issues, please email me at [tmk1.tran](www.google.com)
+If you have suggestions or issues, please email me at <a href="mailto:tmk1.tran@gmail.com"></a>
